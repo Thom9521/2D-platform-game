@@ -52,17 +52,22 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        // Resets the game when pushing R
         if (Input.GetKeyDown(KeyCode.R) == true)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
+        // Resets the game when player gets below -6 on the y (when hitting frogs)
         if (this.gameObject.transform.position.y < -6)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
-
+        // Exits to menu
+        if (Input.GetKeyDown(KeyCode.Escape) == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     public void OnLanding()
