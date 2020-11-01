@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -51,6 +52,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.R) == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (this.gameObject.transform.position.y < -6)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        }
+
     }
 
     public void OnLanding()
@@ -84,7 +96,5 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         controller.Move(horizontalMovementSpeed * Time.fixedDeltaTime, false, isJumping);
-
-
     }
 }
